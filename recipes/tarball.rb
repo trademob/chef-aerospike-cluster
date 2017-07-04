@@ -66,10 +66,10 @@ execute 'extract_aerospike_tarball' do
   creates ::File.join(node['aerospike']['server_source_dir'], 'aerospike-server', 'bin', 'aerospike')
 end
 
-remote_file 'delete_tarball_file' do
-  path tarball_file
-  action :delete
-end
+# remote_file 'delete_tarball_file' do
+#   path tarball_file
+#   action :delete
+# end
 
 link node['aerospike']['install_dir'] do
   to ::File.join(node['aerospike']['server_source_dir'], 'aerospike-server')
