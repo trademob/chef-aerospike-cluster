@@ -28,7 +28,7 @@ end
 
 def tarball_sha256sum(edition, version)
   sha256sums = { 'community' => {}, 'enterprise' => {} }
-  sha256sums['community']['3.6.3'] = 'fb0fb93e64a8559349645f20821193d1f767672bc06c7f0ad1b1b0a4bc40a7f2'
+  sha256sums['community']['3.14.0.2'] = 'a026d34487cf470de0b1b85f2e08e7edc1ee016cbea6e34a21cb40990ff7d361'
   sha256sum = sha256sums[edition][version]
   raise "sha256sum is missing for aerospike tarball edition #{edition} version #{version}" unless sha256sum
   sha256sum
@@ -76,7 +76,7 @@ def tools_sha256sum(edition, version, os)
     }
   }
 
-  sha256sums['community']['ubuntu14']['3.10.2'] = 'b62ce954e94f94c033d0229935c8c2414b92a61851b0a7ac58782c46672e4ce6'
+  sha256sums['community']['ubuntu14']['3.13.0.1'] = '431b3b76fa00d1fb0b55657b1bd784e4c7ecd116404b524d632f5fba654ae2df'
   sha256sums['community']['debian7']['3.10.2'] = 'd662d5655794acf5163b93116db192475d62c55c17d240b2cc0b5d43f8b9b163'
   sha256sums['community']['debian8']['3.10.2'] = '5a1714b982bf5a01b299a2c686b484a53997ef6bc9619473fcb89eff93a22fef'
   sha256sums['community']['el6']['3.10.2'] = 'a631cdb02874c982fe0e045a96891219474c383ec87c09233a9bd84062d7dc5b'
@@ -90,6 +90,7 @@ end
 def amc_package_sha256sum(edition, version, os)
   sha256sums = {
     'community' => {
+      'ubuntu14' => {},
       'ubuntu12' => {},
       'debian6' => {},
       'el6' => {}
@@ -100,7 +101,7 @@ def amc_package_sha256sum(edition, version, os)
       'el6' => {}
     }
   }
-
+  
   sha256sums['community']['ubuntu12']['3.6.3'] = 'c1d6692cb15a7088b947a27b9f862d44d64ba4976626ee0463a196e008b90547'
   sha256sums['community']['debian6']['3.6.3'] = 'c1d6692cb15a7088b947a27b9f862d44d64ba4976626ee0463a196e008b90547'
   sha256sums['community']['el6']['3.6.3'] = '9a160f59f7a815106a39c4cf28043665383986977d14e11a681ff0f29215ace5'
