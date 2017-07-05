@@ -22,3 +22,4 @@ default['aerospike']['amc']['gunicorn_config']['pidfile'] = '/tmp/amc.pid'
 default['aerospike']['amc']['gunicorn_config']['proc_name'] = 'amc'
 default['aerospike']['amc']['gunicorn_config']['chdir'] = '/opt/amc'
 default['aerospike']['amc']['gunicorn_config']['worker_class'] = 'eventlet'
+default['aerospike']['amc']['gunicorn_config']['database'] = ::File.join(node['aerospike']['amc']['gunicorn_config']['chdir'], 'amc.db')
