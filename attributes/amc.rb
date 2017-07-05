@@ -1,4 +1,4 @@
-default['aerospike']['amc']['conf_dir'] = '/etc/amc/config'
+default['aerospike']['amc']['conf_dir'] = '/etc/amc'
 default['aerospike']['amc']['log_dir'] = '/var/log/amc'
 
 default['aerospike']['amc']['service_action'] = [:enable, :start]
