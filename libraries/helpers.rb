@@ -69,6 +69,7 @@ def tools_sha256sum(edition, version, os)
   sha256sums = {
     'community' => {
       'ubuntu14' => {},
+      'ubuntu12' => {},
       'debian7' => {},
       'debian8' => {},
       'el6' => {},
@@ -77,6 +78,7 @@ def tools_sha256sum(edition, version, os)
   }
 
   sha256sums['community']['ubuntu14']['3.13.0.1'] = '431b3b76fa00d1fb0b55657b1bd784e4c7ecd116404b524d632f5fba654ae2df'
+  sha256sums['community']['ubuntu12']['3.13.0.1'] = '8e7ec9aa45306d0547ecf4fa2b7e602f0b900f8cf5fac263f39941ed56dad356'
   sha256sums['community']['debian7']['3.10.2'] = 'd662d5655794acf5163b93116db192475d62c55c17d240b2cc0b5d43f8b9b163'
   sha256sums['community']['debian8']['3.10.2'] = '5a1714b982bf5a01b299a2c686b484a53997ef6bc9619473fcb89eff93a22fef'
   sha256sums['community']['el6']['3.10.2'] = 'a631cdb02874c982fe0e045a96891219474c383ec87c09233a9bd84062d7dc5b'
