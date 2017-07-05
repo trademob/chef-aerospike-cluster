@@ -263,7 +263,7 @@ If you find a version missing, please submit a PR or open an issue.
 
 * `default['aerospike']['version']['amc']` (default: `3.8.13`): amc version
 
-* `default['aerospike']['amc']['conf_dir']` (default: `/etc/amc/config`): amc config directory
+* `default['aerospike']['amc']['conf_dir']` (default: `/etc/amc`): amc config directory
 
 * `default['aerospike']['amc']['log_dir']` (default: `/var/log/amc`): amc log directory
 
@@ -273,7 +273,7 @@ If you find a version missing, please submit a PR or open an issue.
 
 * `default['aerospike']['amc']['package_url']` (default: `auto`): amc package url
 
-* `default['aerospike']['amc']['update_interval']` (default: `5`): amc.cfg configuration parameter
+* `default['aerospike']['amc']['update_interval']` (default: `5`): amc.conf configuration parameter
 
 * `default['aerospike']['amc']['host']` (default: `node['ipaddress']`): amc gunicorn bind host
 
@@ -281,7 +281,7 @@ If you find a version missing, please submit a PR or open an issue.
 
 * `default['aerospike']['amc']['gunicorn_config']['bind']` (default: `calculated`): amc gunicorn configuration parameter
 
-* `default['aerospike']['amc']['gunicorn_config']['errorlog']` (default: `/var/log/amc/error.log`): amc gunicorn configuration parameter
+* `default['aerospike']['amc']['gunicorn_config']['errorlog']` (default: `/var/log/amc/amc.log`): amc gunicorn configuration parameter
 
 * `default['aerospike']['amc']['gunicorn_config']['loglevel']` (default: `info`): amc gunicorn configuration parameter
 

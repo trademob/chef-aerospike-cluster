@@ -1,6 +1,6 @@
-default['aerospike']['version']['server'] = '3.10.1.1'
-default['aerospike']['version']['tools'] = '3.10.2'
-default['aerospike']['version']['amc'] = '3.6.13'
+default['aerospike']['version']['server'] = '3.14.0.2'
+default['aerospike']['version']['tools'] = '3.13.0.1'
+default['aerospike']['version']['amc'] = '4.0.13'
 
 default['aerospike']['tarball_purge'] = false
 
@@ -29,7 +29,7 @@ default['aerospike']['tarball_url'] = 'auto'
 default['aerospike']['server_package_url'] = 'auto'
 default['aerospike']['tools_package_url'] = 'auto'
 default['aerospike']['package_suffix'] = value_for_platform(
-  'ubuntu' => { '~> 14.04' => 'ubuntu14.04', 'default' => 'ubuntu12.04' },
+  'ubuntu' => { '~> 14.04' => 'ubuntu14.04', 'default' => 'ubuntu14.04' },
   'debian' => { 'default' => "debian#{node['platform_version']}" },
   %w(amazon centos redhat) => { '~> 7.0' => 'el7', 'default' => 'el6' }
 )

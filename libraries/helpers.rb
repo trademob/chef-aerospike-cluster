@@ -101,7 +101,8 @@ def amc_package_sha256sum(edition, version, os)
       'el6' => {}
     }
   }
-  
+
+  sha256sums['community']['ubuntu14']['4.0.13'] = 'dfccbfb3f712e66baa1bde3e7fbeae4955bf33dcb518b496eb780e01dc3a8e98'
   sha256sums['community']['ubuntu12']['4.0.13'] = 'dfccbfb3f712e66baa1bde3e7fbeae4955bf33dcb518b496eb780e01dc3a8e98'
   sha256sums['community']['ubuntu12']['3.6.3'] = 'c1d6692cb15a7088b947a27b9f862d44d64ba4976626ee0463a196e008b90547'
   sha256sums['community']['debian6']['3.6.3'] = 'c1d6692cb15a7088b947a27b9f862d44d64ba4976626ee0463a196e008b90547'

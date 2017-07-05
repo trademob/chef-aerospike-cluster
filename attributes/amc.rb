@@ -14,7 +14,7 @@ default['aerospike']['amc']['port'] = 8081
 default['aerospike']['amc']['host'] = node['ipaddress']
 
 default['aerospike']['amc']['gunicorn_config']['bind'] = node['aerospike']['amc']['host'] + ':' + node['aerospike']['amc']['port'].to_s
-default['aerospike']['amc']['gunicorn_config']['errorlog'] = '/var/log/amc/error.log'
+default['aerospike']['amc']['gunicorn_config']['errorlog'] = '/var/log/amc/amc.log'
 default['aerospike']['amc']['gunicorn_config']['loglevel'] = 'info'
 default['aerospike']['amc']['gunicorn_config']['workers'] = 1
 default['aerospike']['amc']['gunicorn_config']['timeout'] = 150
