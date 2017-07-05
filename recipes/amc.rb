@@ -87,5 +87,4 @@ end
 
 service 'amc' do
   action node['aerospike']['amc']['service_action']
-  ignore_failure true
 end
