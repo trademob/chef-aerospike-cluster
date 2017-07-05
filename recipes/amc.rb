@@ -81,6 +81,7 @@ end
 template 'amc.conf' do
   path ::File.join(node['aerospike']['amc']['conf_dir'], 'amc.conf')
   source 'amc.conf.erb'
+  variables('config' => node['aerospike']['amc']['gunicorn_config'])
   notifies :restart, 'service[amc]' if node['aerospike']['notify_restart']
 end
 
