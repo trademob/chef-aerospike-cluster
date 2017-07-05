@@ -71,12 +71,12 @@ package 'install_amc_package' do
   notifies :restart, 'service[amc]' if node['aerospike']['notify_restart']
 end
 
-template 'gunicorn_config.py' do
-  path ::File.join(node['aerospike']['amc']['conf_dir'], 'gunicorn_config.py')
-  source 'gunicorn_config.py.erb'
-  variables('config' => node['aerospike']['amc']['gunicorn_config'])
-  notifies :restart, 'service[amc]' if node['aerospike']['notify_restart']
-end
+# template 'gunicorn_config.py' do
+#   path ::File.join(node['aerospike']['amc']['conf_dir'], 'gunicorn_config.py')
+#   source 'gunicorn_config.py.erb'
+#   variables('config' => node['aerospike']['amc']['gunicorn_config'])
+#   notifies :restart, 'service[amc]' if node['aerospike']['notify_restart']
+# end
 
 template 'amc.conf' do
   path ::File.join(node['aerospike']['amc']['conf_dir'], 'amc.conf')

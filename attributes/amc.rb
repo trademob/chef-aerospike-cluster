@@ -20,5 +20,5 @@ default['aerospike']['amc']['gunicorn_config']['workers'] = 1
 default['aerospike']['amc']['gunicorn_config']['timeout'] = 150
 default['aerospike']['amc']['gunicorn_config']['pidfile'] = '/tmp/amc.pid'
 default['aerospike']['amc']['gunicorn_config']['proc_name'] = 'amc'
-default['aerospike']['amc']['gunicorn_config']['chdir'] = '/opt/amc/server'
+default['aerospike']['amc']['gunicorn_config']['chdir'] = '/opt/amc'
 default['aerospike']['amc']['gunicorn_config']['worker_class'] = 'eventlet'
