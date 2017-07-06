@@ -40,6 +40,7 @@ default['aerospike']['umask'] = '0022'
 default['aerospike']['mode']  = '0755'
 
 default['aerospike']['enable_test_namespace'] = true
+default['aerospike']['enable_userdb_namespace'] = false
 
 default['aerospike']['chef']['search'] = "role:aerospike-server AND chef_environment:#{node.chef_environment}"
 default['aerospike']['checksum_verify'] = true

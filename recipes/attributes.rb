@@ -88,3 +88,28 @@ if node['aerospike']['enable_test_namespace']
 
   # node.default['aerospike']['config']['namespace']['test']['storage-engine device']['data-in-memory'] = true
 end
+
+if node['aerospike']['enable_userdb_namespace']
+  # hdd device storage engine
+  # node.default['aerospike']['config']['namespace']['userdb']['storage-engine device']['file'] = ::File.join(node['aerospike']['data_dir'], 'userdb.ns')
+  node.default['aerospike']['config']['namespace']['userdb']['replication-factor'] = 2
+  node.default['aerospike']['config']['namespace']['userdb']['memory-size'] = '16G'
+  node.default['aerospike']['config']['namespace']['userdb']['default-ttl'] = '30d'
+  # node.default['aerospike']['config']['namespace']['userdb']['single-bin'] = true
+  # node.default['aerospike']['config']['namespace']['userdb']['data-in-index'] = true
+  # node.default['aerospike']['config']['namespace']['userdb']['high-water-memory-pct'] = 60
+  # node.default['aerospike']['config']['namespace']['userdb']['stop-writes-pct'] = 90
+
+  # memory storage engine
+  # node.default['aerospike']['config']['namespace']['userdb']['storage-engine'] = 'memory'
+
+  # ssd device storage engine
+  node.default['aerospike']['config']['namespace']['userdb']['storage-engine device']['device'] = %w(/dev/nvme0n1)
+  node.default['aerospike']['config']['namespace']['userdb']['storage-engine device']['write-block-size'] = '1024K'
+  # node.default['aerospike']['config']['namespace']['userdb']['storage-engine device']['scheduler-mode'] = 'noop'
+
+  # hdd device storage engine
+  # node.default['aerospike']['config']['namespace']['userdb']['storage-engine device']['filesize'] = '4M'
+
+  # node.default['aerospike']['config']['namespace']['userdb']['storage-engine device']['data-in-memory'] = true
+end
