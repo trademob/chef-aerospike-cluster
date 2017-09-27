@@ -1,4 +1,4 @@
-default['aerospike']['version']['server'] = '3.14.0.2'
+default['aerospike']['version']['server'] = '3.14.1.4'
 default['aerospike']['version']['tools'] = '3.13.0.1'
 default['aerospike']['version']['amc'] = '4.0.13'
 
