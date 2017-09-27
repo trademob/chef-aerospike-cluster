@@ -29,6 +29,7 @@ end
 def tarball_sha256sum(edition, version)
   sha256sums = { 'community' => {}, 'enterprise' => {} }
   sha256sums['community']['3.14.0.2'] = 'a026d34487cf470de0b1b85f2e08e7edc1ee016cbea6e34a21cb40990ff7d361'
+  sha256sums['community']['3.14.1.4'] = 'af6470fd9d5933c5641c2fec5eb8372aa5e49360c5ae7d00d51c4b4c0a02302b'
   sha256sum = sha256sums[edition][version]
   raise "sha256sum is missing for aerospike tarball edition #{edition} version #{version}" unless sha256sum
   sha256sum
