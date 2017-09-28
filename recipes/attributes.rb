@@ -40,6 +40,7 @@ node.default['aerospike']['log_file'] = ::File.join(node['aerospike']['log_dir']
 
 # service {}
 node.default['aerospike']['config']['service']['work-directory'] = node['aerospike']['work_dir']
+node.default['aerospike']['config']['service']['nsup-period'] = '60'
 
 # heartbeat {}
 node.default['aerospike']['config']['network']['heartbeat']['port'] = case node['aerospike']['config']['network']['heartbeat']['mode']
@@ -93,7 +94,7 @@ if node['aerospike']['enable_userdb_namespace']
   # hdd device storage engine
   # node.default['aerospike']['config']['namespace']['userdb']['storage-engine device']['file'] = ::File.join(node['aerospike']['data_dir'], 'userdb.ns')
   node.default['aerospike']['config']['namespace']['userdb']['replication-factor'] = 2
-  node.default['aerospike']['config']['namespace']['userdb']['memory-size'] = '16G'
+  node.default['aerospike']['config']['namespace']['userdb']['memory-size'] = '22G'
   node.default['aerospike']['config']['namespace']['userdb']['default-ttl'] = '30d'
   # node.default['aerospike']['config']['namespace']['userdb']['single-bin'] = true
   # node.default['aerospike']['config']['namespace']['userdb']['data-in-index'] = true
