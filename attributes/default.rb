@@ -1,6 +1,6 @@
-default['aerospike']['version']['server'] = '3.14.1.4'
-default['aerospike']['version']['tools'] = '3.13.0.1'
-default['aerospike']['version']['amc'] = '4.0.13'
+default['aerospike']['version']['server'] = '3.16.0.4'
+default['aerospike']['version']['tools'] = '3.15.2.1'
+default['aerospike']['version']['amc'] = '4.0.15'
 
 default['aerospike']['tarball_purge'] = false
 
