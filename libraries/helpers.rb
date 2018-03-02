@@ -48,7 +48,7 @@ def package_sha256sum(edition, version, os)
 
   sha256sums['community']['ubuntu14.04']['3.16.0.4'] = '9493496e20903e10f11c0776ead9a04e19d4e676dadf829a3b79bf5fc3f63df0'
 
-  sha256sums['enterprise']['ubuntu14.04']['3.16.0.4'] = ''
+  sha256sums['enterprise']['ubuntu14.04']['3.16.0.4'] = '9493496e20903e10f11c0776ead9a04e19d4e676dadf829a3b79bf5fc3f63df0'
 
   sha256sum = sha256sums[edition][os][version]
   raise "sha256sum is missing for aerospike package edition #{edition} version #{version} os #{os}" unless sha256sum
@@ -85,7 +85,7 @@ def amc_package_sha256sum(edition, version, os)
 
   sha256sums['community']['ubuntu14']['4.0.15'] = 'aa61de5488107aad08403f5cba9ec2d50708a75d3fe9e87ddd35b94bfe883ed2'
 
-  sha256sums['enterprise']['ubuntu14']['3.6.3'] = ''
+  sha256sums['enterprise']['ubuntu14']['4.0.15'] = 'aa61de5488107aad08403f5cba9ec2d50708a75d3fe9e87ddd35b94bfe883ed2'
 
   sha256sum = sha256sums[edition][os][version]
   raise "sha256sum is missing for aerospike package edition #{edition} version #{version} os #{os}" unless sha256sum
