@@ -31,8 +31,14 @@ network {
     <% node['aerospike']['config']['nodes'].each do |i, config| %>
     mesh-seed-address-port <%= i %> <%= node['aerospike']['config']['network']['heartbeat']['port'] %>
     <% end %>
-
     }
+    fabric {
+      port <%= node['aerospike']['config']['network']['fabric']['port'] %>
+    }
+    info {
+      port <%= node['aerospike']['config']['network']['info']['port'] %>
+    }
+
 }
 
 <% @config['namespace'].each do |name, options| %>
