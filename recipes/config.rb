@@ -37,15 +37,25 @@ end
 
 config = node['aerospike'][node['aerospike']['config_attribute']]
 
+#template node['aerospike']['conf_file'] do
+#  cookbook node['aerospike']['cookbook']
+#  source 'aerospike.conf.erb'
+#  owner node['aerospike']['user']
+#  group node['aerospike']['group']
+#  mode 0o644
+#  variables(:config => config)
+#  notifies :restart, 'service[aerospike]' if node['aerospike']['notify_restart']
+#end
+
 template node['aerospike']['conf_file'] do
-  cookbook node['aerospike']['cookbook']
   source 'aerospike.conf.erb'
   owner node['aerospike']['user']
   group node['aerospike']['group']
   mode 0o644
-  variables(:config => config)
   notifies :restart, 'service[aerospike]' if node['aerospike']['notify_restart']
 end
+
+
 
 service 'aerospike' do
   supports :restart => true, :start => true, :stop => true, :status => true, :reload => false

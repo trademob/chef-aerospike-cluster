@@ -4,22 +4,28 @@
 #
 
 service {
-<%= as_config_generator(@config['service']) %>
+  user root
+  group root
+  paxos-single-replica-limit 1
+  pidfile /var/run/aerospike/asd.pid
+  proto-fd-max 15000
+  work-directory /opt/aerospike
+  nsup-period 60
+
 }
 
 logging {
-<%= as_config_generator(@config['logging']) %>
+  file /var/log/aerospike/aerospike.log {
+    context any info
+  }
+
 }
 
 mod-lua {
-<%= as_config_generator(@config['mod-lua']) %>
-}
+  user-path /opt/aerospike/usr/udf/lua
+  system-path /opt/aerospike/sys/udf/lua
 
-<%- unless node['aerospike']['config']['xdr'].empty? %>
-xdr {
-<%= as_config_generator(@config['xdr']) %>
 }
-<%- end %>
 
 network {
   service {
@@ -35,12 +41,16 @@ network {
     address  <%= node['aerospike']['config']['network']['heartbeat']['address'] %>
 
     mesh-seed-address-port <%= node[aerospike]['nodes'] %> <%= node['aerospike']['config']['network']['heartbeat']['port'] %>
+
     }
 }
 
-<% @config['namespace'].each do |name, options| %>
-namespace <%= name %> {
-<%= as_config_generator(options) %>
+namespace userdb {
+  replication-factor 2
+  memory-size 22G
+  default-ttl 30d
+  storage-engine device {
+    device /dev/nvme0n1
+    write-block-size 1024K
+  }
 }
-
-<% end %>
