@@ -47,16 +47,6 @@ template node['aerospike']['conf_file'] do
   notifies :restart, 'service[aerospike]' if node['aerospike']['notify_restart']
 end
 
-#template node['aerospike']['conf_file'] do
-#  source 'aerospike.conf.erb'
-#  owner node['aerospike']['user']
-#  group node['aerospike']['group']
-#  mode 0o644
-#  notifies :restart, 'service[aerospike]' if node['aerospike']['notify_restart']
-#end
-
-
-
 service 'aerospike' do
   supports :restart => true, :start => true, :stop => true, :status => true, :reload => false
   action node['aerospike']['service_action']
