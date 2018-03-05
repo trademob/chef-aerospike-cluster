@@ -21,12 +21,21 @@ xdr {
 }
 <%- end %>
 
-cluster {
-<%= as_config_generator(@config['cluster']) %>
-}
-
 network {
-<%= as_config_generator(@config['network']) %>
+  service {
+    address <%= node['aerospike']['config']['network']['service']['address'] %>
+    port    <%= node['aerospike']['config']['network']['service']['port'] %>
+  }
+
+  heartbeat {
+    mode     <%= node['aerospike']['config']['network']['service']['mode'] %>
+    interval <%= node['aerospike']['config']['network']['service']['interval'] %>
+    timeout  <%= node['aerospike']['config']['network']['service']['timeout'] %>
+    port     <%= node['aerospike']['config']['network']['heartbeat']['port'] %>
+    address  <%= node['aerospike']['config']['network']['heartbeat']['address'] %>
+
+    mesh-seed-address-port <%= node[aerospike]['nodes'] %> <%= node['aerospike']['config']['network']['heartbeat']['port'] %>
+    }
 }
 
 <% @config['namespace'].each do |name, options| %>
