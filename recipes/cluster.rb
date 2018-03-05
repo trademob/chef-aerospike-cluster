@@ -22,10 +22,10 @@
 
 case node['aerospike']['config']['network']['heartbeat']['mode']
 when 'mesh'
-  if Chef::Config[:solo] && !node['aerospike']['chef']['search'].to_s.empty?
-    Chef::Log.warn 'This recipe uses search. Chef Solo does not support search.'
-    raise '[ERROR] Can\'t configure aerospike cluster. Chef Solo does not support search.'
-  end
+  #if Chef::Config[:solo] && !node['aerospike']['chef']['search'].to_s.empty?
+  #  Chef::Log.warn 'This recipe uses search. Chef Solo does not support search.'
+  #  raise '[ERROR] Can\'t configure aerospike cluster. Chef Solo does not support search.'
+  #end
   if node['aerospike']['chef']['search'].to_s.empty?
     node.default['aerospike']['config']['network']['heartbeat']['mesh-seed-address-port'] = ["#{node['ipaddress']} #{node['aerospike']['config']['network']['heartbeat']['port']}"] if node['aerospike']['config']['network']['heartbeat']['mesh-seed-address-port'].empty?
   else
