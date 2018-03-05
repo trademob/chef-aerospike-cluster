@@ -17,6 +17,13 @@
 # limitations under the License.
 #
 
+nodes = search(:node, node['aerospike']['chef']['search'].to_s)
+
+nodes.sort_by! { |n| n['ipaddress'] }
+nodes.map! { |n| "#{n['ipaddress']} #{n['aerospike']['config']['network']['heartbeat']['port']}" }
+
+node.default['aerospike']['config']['network']['heartbeat']['mesh-seed-address-port'] = nodes
+
 node.default['aerospike']['install_dir'] = ::File.join(node['aerospike']['parent_dir'], 'aerospike')
 
 node.default['aerospike']['server_source_dir'] = case node['aerospike']['install_method']
