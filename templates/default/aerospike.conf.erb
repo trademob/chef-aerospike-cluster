@@ -40,7 +40,7 @@ network {
     port     <%= node['aerospike']['config']['network']['heartbeat']['port'] %>
     address  <%= node['aerospike']['config']['network']['heartbeat']['address'] %>
 
-    mesh-seed-address-port <%= node[aerospike]['nodes'] %> <%= node['aerospike']['config']['network']['heartbeat']['port'] %>
+    mesh-seed-address-port <%= node['aerospike']['nodes'] %> <%= node['aerospike']['config']['network']['heartbeat']['port'] %>
 
     }
 }
