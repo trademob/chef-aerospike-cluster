@@ -4,27 +4,15 @@
 #
 
 service {
-  user root
-  group root
-  paxos-single-replica-limit 1
-  pidfile /var/run/aerospike/asd.pid
-  proto-fd-max 15000
-  work-directory /opt/aerospike
-  nsup-period 60
-
+<%= as_config_generator(@config['service']) %>
 }
 
 logging {
-  file /var/log/aerospike/aerospike.log {
-    context any info
-  }
-
+<%= as_config_generator(@config['logging']) %>
 }
 
 mod-lua {
-  user-path /opt/aerospike/usr/udf/lua
-  system-path /opt/aerospike/sys/udf/lua
-
+<%= as_config_generator(@config['mod-lua']) %>
 }
 
 network {
@@ -47,12 +35,9 @@ network {
     }
 }
 
-namespace userdb {
-  replication-factor 2
-  memory-size 22G
-  default-ttl 30d
-  storage-engine device {
-    device /dev/nvme0n1
-    write-block-size 1024K
-  }
+<% @config['namespace'].each do |name, options| %>
+namespace <%= name %> {
+<%= as_config_generator(options) %>
 }
+
+<% end %>
