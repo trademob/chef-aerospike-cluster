@@ -43,17 +43,10 @@ network {
     mesh-seed-address-port <%= node['aerospike']['config']['nodes'] %> <%= node['aerospike']['config']['network']['heartbeat']['port'] %>
 
 
-    <% node['aerospike']['config']['nodes'].each do |i| %>
-    [host:<%= i %>]
-    #    <% config.each do |config_key, config_value| %>
-    #<% if config_key != 'install' %>
-    #<%= config_key %> = <%= config_value %>
+    <% node['aerospike']['config']['nodes'].each do |i, config| %>
+    [cache:<%= i %>]
 
-    #<% end %>
-    #<% end %>
     <% end %>
-
-
 
 
 
